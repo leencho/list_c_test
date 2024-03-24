@@ -1,38 +1,37 @@
-#include"list.h"
-#include<stdlib.h>
-#include<stdio.h>
-
-
+#include "list.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct node node_t;
 
-struct node{
+struct node
+{
     node_t *next;
-    int item; 
+    int item;
 };
-struct list{
+struct list
+{
     node_t *head;
-    
 };
 
-list_t * create_list(void)
+list_t *create_list(void)
 {
-    printf("called this");
     list_t *list = malloc(sizeof(list_t));
-    if(list == NULL){
+    if (list == NULL)
+    {
         printf("could not create list");
     }
     list->head = NULL;
-    list->head->item = 0;
-    printf("list is created");
     return list;
 }
-//int remove_list(list_t *list){
+// int remove_list(list_t *list){
 
 //}
-int add_list(list_t *list, int item){
+int add_list(list_t *list, int item)
+{
     node_t *node = malloc(sizeof(node_t));
-    if(node == NULL){
+    if (node == NULL)
+    {
         printf("could not create node\n");
     }
     node->item = item;
@@ -40,16 +39,16 @@ int add_list(list_t *list, int item){
     list->head = node;
 
     return 0;
-    
-
 }
-/*
-void print_list(list_t *list){
 
-    while(list->head != NULL){
-        printf("%d -> \n", list->head->item);
+void print_list(list_t *list)
+{
+
+    while (list->head != NULL)
+    {
+        printf("%d -> ", list->head->item);
         list->head = list->head->next;
     }
-
+    printf("NULL");
+    printf("\n");
 }
-*/

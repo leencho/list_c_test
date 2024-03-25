@@ -24,9 +24,18 @@ list_t *create_list(void)
     list->head = NULL;
     return list;
 }
-// int remove_list(list_t *list){
-
-//}
+void remove_list(list_t *list)
+{
+    node_t *current = NULL;
+    node_t *tmp = NULL;
+    current = list->head;
+    while (current != NULL)
+    {
+        tmp = current;
+        current = current->next;
+        free(tmp);
+    }
+}
 int add_list(list_t *list, int item)
 {
     node_t *node = malloc(sizeof(node_t));
